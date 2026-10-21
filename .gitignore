@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Release output
+dist/
+
+# Local scratch
+_tmp/
+_ref/
+_probe/
+_e2e/
+*.log
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Never commit credentials or local configuration
+.env
+.env.*
+*.pem
+*.key
+credentials*.yaml

@@ -1,0 +1,7 @@
+{
+  "name": "dsh-expert-council-protocol-tests",
+  "private": true,
+  "type": "module",
+  "description": "Node >= 22 no longer expands a directory argument for `node --test`; it loads the path as a module. This package.json makes the documented acceptance command `node --test tests/protocols` run every *.test.js file in this directory via ./run-all.js. The individual files can also be run directly, e.g. `node --test \"tests/protocols/*.test.js\"`.",
+  "main": "./run-all.js"
+}

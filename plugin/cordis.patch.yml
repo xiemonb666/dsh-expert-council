@@ -1,0 +1,67 @@
+# dsh-expert-council bundle patch.
+#
+# Inserts one plugin row into the active profile. The host half (exports ".")
+# registers the `consult_expert` / `consult_council` / `followup_expert` /
+# `verify_consultation` tools, the provider adapters, the consultation records
+# and the settings HTTP routes. The `dsh.client` declaration in package.json
+# makes the browser half (exports "./client") load in the Web GUI, where it
+# registers the Expert Consultation tool cards and the Expert Council settings
+# page.
+#
+# Every field below is a default. Configure real providers and models from
+# Harness → Settings → Expert Council, or by editing this row's `config`.
+- insert:
+    - id: dsh-expert-council
+      name: dsh-expert-council
+      config:
+        slots:
+          L1:
+            enabled: false
+            displayName: Frontier Reasoning
+            protocol: anthropic_messages
+            providerLabel: ''
+            baseUrl: ''
+            modelId: ''
+            credentialRef: DSH_EXPERT_L1_API_KEY
+            apiVersion: '2023-06-01'
+            authScheme: x-api-key
+            maxOutputTokens: 8192
+            temperature: null
+            timeoutMs: 180000
+            retries: 1
+          L2:
+            enabled: false
+            displayName: Advanced Reasoning
+            protocol: openai_chat_completions
+            providerLabel: ''
+            baseUrl: ''
+            modelId: ''
+            credentialRef: DSH_EXPERT_L2_API_KEY
+            authScheme: bearer
+            maxOutputTokens: 8192
+            temperature: null
+            timeoutMs: 120000
+            retries: 1
+          L3:
+            enabled: false
+            displayName: Core Reasoning
+            protocol: openai_chat_completions
+            providerLabel: ''
+            baseUrl: ''
+            modelId: ''
+            credentialRef: DSH_EXPERT_L3_API_KEY
+            authScheme: bearer
+            maxOutputTokens: 4096
+            temperature: null
+            timeoutMs: 90000
+            retries: 1
+        defaults:
+          singleSlot: L2
+          allowCouncil: true
+          maxCostUsdPerCall: null
+        security:
+          allowedHosts: []
+          trustedLocalEndpoints: []
+          maxPayloadBytes: 120000
+          redactSecrets: true
+          allowRepoScope: false
